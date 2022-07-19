@@ -1,6 +1,7 @@
 <?php
+$this->load->view('header');
 echo '<h2>'.$title.'</h2>';
-echo '<table>';
+echo '<table class="table table-striped">';
 foreach ($records as $r)
 {
 	echo '<tr>';
@@ -18,3 +19,4 @@ foreach ($records as $r)
 	echo '</tr>';
 }
 echo '</table>';
+$this->load->view('footer');

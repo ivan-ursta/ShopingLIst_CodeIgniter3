@@ -2,13 +2,6 @@
 
 class Home extends CI_Controller
 {
-	public function index()
-	{
-		$data['title'] = 'Page1';
-		$data['text'] = 'This text was send from Home controller';
-		$data['countries'] = array('Argentina','Belgium','Canada','Great Britain');
-		$this->load->view('page1', $data);
-	}
 	public function __construct()
 	{
 		parent::__construct();

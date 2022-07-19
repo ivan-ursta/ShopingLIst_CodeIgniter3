@@ -7,5 +7,4 @@ echo '<ul>';
 			echo '<li>'.$c.'</li>';
 		}
 echo '</ul>';
-		echo current_url();
-echo base_url();
+
