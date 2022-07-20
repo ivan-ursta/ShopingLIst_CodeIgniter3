@@ -12,11 +12,11 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 
-				<li><a href="<?php echo site_url('home/RecordsList'); ?>">
+				<li><a href="<?php echo site_url('home/recordsList'); ?>">
 						Get List</a></li>
-				<li><a href="<?php echo site_url('home/AddRecord'); ?>">
+				<li><a href="<?php echo site_url('home/addRecord'); ?>">
 						Add Record</a></li>
-				<li><a href="<?php echo site_url('home/AddCategory'); ?>">
+				<li><a href="<?php echo site_url('home/addCategory'); ?>">
 						Add Category</a></li>
 			</ul>
 		</div>
