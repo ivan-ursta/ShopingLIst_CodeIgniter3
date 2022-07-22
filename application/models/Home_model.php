@@ -23,5 +23,14 @@ class Home_model extends CI_Model
 			return false;
 		}
 	}
+	public function addNewRecord($data){
+		$insert = $this->db->insert('records',$data);
+		if($insert){
+			return $this->db->insert_id();
+		}
+		else{
+			return false;
+		}
+	}
 }
 

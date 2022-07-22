@@ -28,12 +28,28 @@ class Home extends CI_Controller
 			$categoryId = $this->home_model->addNewCategory($data);
 			$info['result'] = 'Successfully Inserted New Category With Id='.$categoryId;
 			$this->load->view('form_category',$info);
-			}
-		}
-
-		public function addRecord(){
-			$data['category'] = $this->home_model->getCategory();
-			$this->load->view('form_record',$data);
 		}
 	}
 
+	public function addRecord(){
+		$this->form_validation->set_rules('recordName', 'Record name', 'required');
+		$this->form_validation->set_rules('quantity', 'Quantity', 'numeric|required');
+
+		if($this->form_validation->run() == FALSE){
+			$data['category'] = $this->home_model->getCategory();
+			$this->load->view('form_record',$data);
+		}
+		else{
+			$info['success'] = 'Form data passed the validation';
+			$data['name'] = $this->input->post('recordName');
+			$data['quantity'] = $this->input->post('quantity');
+			$data['recStatus'] = 'not purchased';
+			$data['categoryId'] = $this->input->post('categoryId');
+			$recordId = $this->home_model->addNewRecord($data);
+			$info['result'] = 'Successfully Inserted New Records With Id='.$recordId;
+			$this->load->view('form_record',$info);
+
+		}
+
+	}
+}

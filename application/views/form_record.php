@@ -31,12 +31,6 @@ echo form_input($data);
 echo '</div>';
 
 echo '<div class="row" style="margin: 2px">';
-echo form_label('Enter status', 'recStatus', array('class'=>'control-label col-md-3'));
-$data = array('name' => 'recordStatus', 'size' => 50, 'class' => '');
-echo form_input($data);
-echo '</div>';
-
-echo '<div class="row" style="margin: 2px">';
 echo form_label('Select category', 'category', array('class'=>'control-label col-md-3'));
 echo '<select name="categoryId">';
 foreach ($category as $c){
@@ -48,7 +42,7 @@ echo '</select>';
 echo '</div>';
 
 echo '<div class="row" style="margin:2px;">';
-echo form_submit(array('name'=>'add','value'=>'Add Records', 'class'=>'btn btn-success col-md-offset-4'));
+echo form_submit(array('name'=>'add','value'=>'Add Record', 'class'=>'btn btn-success col-md-offset-4'));
 echo form_reset(array('name'=>'reset','value'=>'Reset', 'class'=>'btn btn-info'));
 echo '</div>';
 
