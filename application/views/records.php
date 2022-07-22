@@ -1,5 +1,20 @@
 <?php
 $this->load->view('header');
+
+echo '<span style="color:red;margin-left:20px;">';
+echo validation_errors();
+echo '</span>';
+
+if(isset($success)) {
+	echo '<span style="color:green;margin-left:20px;">';
+	echo $success;
+	echo '</span>';
+}
+
+if(isset($result)) {
+	echo '<div style="color:green;">'.$result.'</div>';
+}
+
 echo '<h2>'.$title.'</h2>';
 echo '<table class="table table-striped">';
 foreach ($records as $r)
@@ -16,7 +31,14 @@ foreach ($records as $r)
 		}
 	}
 	echo '<td>'.$r['created_at'].'</td>';
+	$hidden = array('id' => $r['id']);
+	echo '<td>'.form_open('home/editStatus','', $hidden);
+	$data = array('name' => 'purchased', 'value' => 'purchased','class' => 'btn btn-success btn-sm');
+	echo form_submit($data);
+	//echo '<button type="button" name="purchased" value="'.$r['id'].'" class="btn btn-success btn-sm">Purchased</button>';
+	echo form_close().'</td>';
 	echo '</tr>';
 }
 echo '</table>';
+
 $this->load->view('footer');

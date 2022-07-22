@@ -32,5 +32,10 @@ class Home_model extends CI_Model
 			return false;
 		}
 	}
+	public function purchased($data,$id){
+		$this->db->where('id', $id);
+		$this->db->update('records',$data);
+		return true;
+	}
 }
 

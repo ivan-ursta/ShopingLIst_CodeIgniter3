@@ -9,10 +9,10 @@ class Home extends CI_Controller
 		$this->load->library('form_validation');
 	}
 	public function recordsList(){
-		$data['title'] = 'List Of Records';
-		$data['records'] = $this->home_model->getRecords();
-		$data['category'] = $this->home_model->getCategory();
-		$this->load->view('records', $data);
+			$data['title'] = 'List Of Records';
+			$data['records'] = $this->home_model->getRecords();
+			$data['category'] = $this->home_model->getCategory();
+			$this->load->view('records', $data);
 	}
 
 	public function addCategory(){
@@ -48,7 +48,17 @@ class Home extends CI_Controller
 			$recordId = $this->home_model->addNewRecord($data);
 			$info['result'] = 'Successfully Inserted New Records With Id='.$recordId;
 			$this->load->view('form_record',$info);
+		}
+	}
 
+	public function editStatus(){
+		$data['recStatus'] = 'purchased';
+		$id = $this->input->post('id');
+		if($this->home_model->purchased($data,$id)){
+			$this->recordsList();
+		}
+		else {
+			echo 'error';
 		}
 
 	}
