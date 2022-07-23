@@ -47,5 +47,10 @@ class Home_model extends CI_Model
 		$res = $this->db->get('records');
 		return $res->result_array();
 	}
+	public function filterByCategory($categoryId){
+		$this->db->where('categoryId', $categoryId);
+		$res = $this->db->get('records');
+		return $res->result_array();
+	}
 }
 

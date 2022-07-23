@@ -77,6 +77,12 @@ class Home extends CI_Controller
 		$data['records'] = $this->home_model->filterByStatus($status);
 		$data['category'] = $this->home_model->getCategory();
 		$this->load->view('records', $data);
-
+	}
+	public function byCategory(){
+		$data['title'] = 'List Of Records';
+		$categoryId= $this->input->post('categoryId');
+		$data['records'] = $this->home_model->filterByCategory($categoryId);
+		$data['category'] = $this->home_model->getCategory();
+		$this->load->view('records', $data);
 	}
 }
