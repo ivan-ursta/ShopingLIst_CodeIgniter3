@@ -37,5 +37,10 @@ class Home_model extends CI_Model
 		$this->db->update('records',$data);
 		return true;
 	}
+	public function deleteRow($data){
+		$this->db->where('id', $data['id']);
+		$this->db->delete('records');
+		return true;
+	}
 }
 

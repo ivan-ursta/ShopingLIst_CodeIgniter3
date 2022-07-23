@@ -60,6 +60,15 @@ class Home extends CI_Controller
 		else {
 			echo 'error';
 		}
+	}
 
+	public function deleteRecord(){
+		$data['id'] = $this->input->post('id');
+		if($this->home_model->deleteRow($data)){
+			$this->recordsList();
+		}
+		else{
+			echo 'error';
+		}
 	}
 }

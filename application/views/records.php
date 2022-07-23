@@ -35,7 +35,11 @@ foreach ($records as $r)
 	echo '<td>'.form_open('home/editStatus','', $hidden);
 	$data = array('name' => 'purchased', 'value' => 'purchased','class' => 'btn btn-success btn-sm');
 	echo form_submit($data);
-	//echo '<button type="button" name="purchased" value="'.$r['id'].'" class="btn btn-success btn-sm">Purchased</button>';
+	echo form_close().'</td>';
+
+	echo '<td>'.form_open('home/deleteRecord','', $hidden);
+	$data1 = array('name' => 'delete', 'value' => 'Delete','class' => 'btn btn-danger btn-sm');
+	echo form_submit($data1);
 	echo form_close().'</td>';
 	echo '</tr>';
 }
