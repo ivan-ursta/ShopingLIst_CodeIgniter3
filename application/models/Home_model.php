@@ -42,5 +42,10 @@ class Home_model extends CI_Model
 		$this->db->delete('records');
 		return true;
 	}
+	public function filterByStatus($status){
+		$this->db->where('recStatus', $status);
+		$res = $this->db->get('records');
+		return $res->result_array();
+	}
 }
 

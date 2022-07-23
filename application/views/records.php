@@ -16,6 +16,42 @@ if(isset($result)) {
 }
 
 echo '<h2>'.$title.'</h2>';
+
+//Filter by status
+echo '<div class="row" style="margin: 2px">';
+echo form_open('home/byStatus');
+echo form_label('Filter by status:', 'filterByStatus', array('class'=>'control-label', 'style'=>'margin-left:10px'));
+$data = array('name' => 'checkStatus', 'id' => 'checkPurchased', 'value' => 'purchased', 'checked' => TRUE);
+echo form_label('purchased', 'purchased', array('class'=>'control-label', 'style'=>'margin-left:10px'));
+echo form_radio($data);
+
+$data = array('name' => 'checkStatus', 'id' => 'checkNotPurchased', 'value' => 'not purchased');
+echo form_label('not purchased', 'notPurchased', array('class'=>'control-label', 'style'=>'margin-left:10px'));
+echo form_radio($data);
+
+$data = array('name' => 'byStatus', 'value' => 'Filter','class' => 'btn btn-success btn-sm', 'style'=>'margin-left:10px');
+echo form_submit($data);
+echo form_close().'</td>';
+echo '</div>';
+
+//Filter by category
+echo '<div class="row" style="margin: 2px">';
+echo form_open('home/byCategory');
+
+echo form_label('Filter by category:', 'filterByCategory', array('class'=>'control-label', 'style'=>'margin-left:10px'));
+echo '<select name="categoryId">';
+foreach ($category as $c){
+	echo '<option value='.$c['id'].'>';
+	echo $c['name'];
+	echo '</option>';
+}
+echo '</select>';
+
+$data = array('name' => 'byCategory', 'value' => 'Filter','class' => 'btn btn-success btn-sm', 'style'=>'margin-left:10px');
+echo form_submit($data);
+echo form_close().'</td>';
+echo '</div>';
+
 echo '<table class="table table-striped">';
 foreach ($records as $r)
 {
@@ -31,6 +67,7 @@ foreach ($records as $r)
 		}
 	}
 	echo '<td>'.$r['created_at'].'</td>';
+
 	$hidden = array('id' => $r['id']);
 	echo '<td>'.form_open('home/editStatus','', $hidden);
 	$data = array('name' => 'purchased', 'value' => 'purchased','class' => 'btn btn-success btn-sm');

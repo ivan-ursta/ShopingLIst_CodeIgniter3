@@ -71,4 +71,12 @@ class Home extends CI_Controller
 			echo 'error';
 		}
 	}
+	public function byStatus(){
+		$data['title'] = 'List Of Records';
+		$status = $this->input->post('checkStatus');
+		$data['records'] = $this->home_model->filterByStatus($status);
+		$data['category'] = $this->home_model->getCategory();
+		$this->load->view('records', $data);
+
+	}
 }
