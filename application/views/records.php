@@ -70,7 +70,7 @@ foreach ($records as $r)
 
 	$hidden = array('id' => $r['id']);
 	echo '<td>'.form_open('home/editStatus','', $hidden);
-	$data = array('name' => 'purchased', 'value' => 'purchased','class' => 'btn btn-success btn-sm');
+	$data = array('name' => 'purchased', 'value' => 'not purchased','class' => 'btn btn-success btn-sm');
 	echo form_submit($data);
 	echo form_close().'</td>';
 
